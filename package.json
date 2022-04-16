@@ -1,0 +1,17 @@
+{
+  "name": "node_rest_api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "rest_api_1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node rest_api_1.js"
+  },
+  "author": "somnath",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "express": "^4.17.3",
+    "mysql": "^2.18.1"
+  }
+}
