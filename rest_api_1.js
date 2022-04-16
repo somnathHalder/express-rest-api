@@ -33,26 +33,18 @@ app.get ('/api/students/:id', function (req, res) {
     return res.status (400).send ({error: true, message: 'Please provide id'});
   }
 
-  conn.findById (id, (error, data) => {
-    if (error) {
-      return next (error);
-    } else {
-      res.json (data);
-    }
+  conn.query ('SELECT * FROM student where id=?', id, function (
+    error,
+    results,
+    fields
+  ) {
+    if (error) throw error;
+    return res.send ({
+      error: false,
+      data: results[0],
+      message: 'student list.',
+    });
   });
-
-  // conn.query ('SELECT * FROM student where id=?', id, function (
-  //   error,
-  //   results,
-  //   fields
-  // ) {
-  //   if (error) throw error;
-  //   return res.send ({
-  //     error: false,
-  //     data: results[0],
-  //     message: 'student list.',
-  //   });
-  // });
 });
 
 // craete student
